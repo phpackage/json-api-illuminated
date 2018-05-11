@@ -3,16 +3,16 @@
 use Illuminate\Container\Container;
 use Illuminate\Http\Response;
 use Neomerx\JsonApi\Contracts\Document\ErrorInterface;
+use Neomerx\JsonApi\Contracts\Encoder\EncoderInterface;
 use Neomerx\JsonApi\Contracts\Http\Headers\MediaTypeInterface;
-use Phpackage\Illuminated\JsonApi\Encoder;
 
 if (!function_exists('illuminated_json_api_encoder')) {
     /**
-     * @return Encoder
+     * @return EncoderInterface
      */
-    function illuminated_json_api_encoder(): Encoder
+    function illuminated_json_api_encoder(): EncoderInterface
     {
-        return Container::getInstance()->get(Encoder::class);
+        return Container::getInstance()->get(EncoderInterface::class);
     }
 }
 

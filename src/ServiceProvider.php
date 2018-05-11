@@ -4,6 +4,7 @@ namespace Phpackage\Illuminated\JsonApi;
 
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Facades\Config;
+use Neomerx\JsonApi\Contracts\Encoder\EncoderInterface;
 use Neomerx\JsonApi\Encoder\EncoderOptions;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -24,7 +25,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             );
         });
 
-        $this->app->singleton(Encoder::class, function (Container $app) {
+        $this->app->singleton(EncoderInterface::class, function (Container $app) {
             return Encoder::instance(
                 Config::get('json-api-illuminated.schemas'),
                 $app->get(EncoderOptions::class)
