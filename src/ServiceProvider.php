@@ -28,7 +28,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             return Encoder::instance(
                 Config::get('json-api-illuminated.schemas'),
                 $app->get(EncoderOptions::class)
-            );
+            )
+                ->withLinks(Config::get('json-api-illuminated.encoder.links'))
+                ->withMeta(Config::get('json-api-illuminated.encoder.meta'));
         });
     }
 
