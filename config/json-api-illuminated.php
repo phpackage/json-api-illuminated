@@ -17,4 +17,6 @@ return [
         'meta' => [
         ],
     ],
+
+    'ignore-accept-header' => true,
 ];
